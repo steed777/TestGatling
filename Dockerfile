@@ -24,7 +24,7 @@ COPY src ./src
 #RUN ./mvnw clean package -Dmaven.test.skip=true
 
 volumes:
--C:/Users:/target/gatling
+    - /C:/Users:/target/gatling
 
 # Определяем команду для запуска Gatling (замените на свой класс симуляции)
 CMD mvn clean gatling:test '-Dgatling.simulationClass=simulation.Yadex'

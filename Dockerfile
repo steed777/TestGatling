@@ -23,12 +23,12 @@ COPY src ./src
 # Собираем Gatling проект
 #RUN ./mvnw clean package -Dmaven.test.skip=true
 
+volumes:
+-C:/Users:/target/gatling
+
 # Определяем команду для запуска Gatling (замените на свой класс симуляции)
 CMD mvn clean gatling:test '-Dgatling.simulationClass=simulation.Yadex'
 
-export REPORT_NAME=$(head -n 1 target/gatling/lastRun.txt)
-echo $REPORT_NAME
-ls target/gatling/$REPORT_NAME
-cp -rf target/gatling/$REPORT_NAME target/gatling/HTMLReport
+
 
 

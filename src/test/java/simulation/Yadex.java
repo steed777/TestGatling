@@ -11,7 +11,7 @@ import static io.gatling.javaapi.core.CoreDsl.*;
 import static io.gatling.javaapi.http.HttpDsl.*;
 import static io.gatling.javaapi.jdbc.JdbcDsl.*;
 
-public class yadex extends Simulation {
+public class Yadex extends Simulation {
 
   private HttpProtocolBuilder httpProtocol = http
     .baseUrl("https://dzen.ru")

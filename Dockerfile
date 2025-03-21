@@ -9,21 +9,21 @@ WORKDIR /app
 
 # Копируем pom.xml (или build.gradle) и файлы настроек Maven/Gradle
 COPY pom.xml .
-COPY .mvn ./.mvn
-COPY mvnw .
-COPY mvnw.cmd .
+#COPY .mvn ./.mvn
+#COPY mvnw .
+#COPY mvnw.cmd .
 
 # Скачиваем зависимости (чтобы ускорить сборку) - используем Maven Wrapper
-RUN ./mvnw dependency:go-offline
+RUN mvn dependency:go-offline
 
 # Копируем исходный код
 COPY src ./src
-COPY resources ./resources
+#COPY resources ./resources
 
 # Собираем Gatling проект
-RUN ./mvnw clean package -Dmaven.test.skip=true
+#RUN ./mvnw clean package -Dmaven.test.skip=true
 
 # Определяем команду для запуска Gatling (замените на свой класс симуляции)
-CMD ["./mvnw", "gatling:test", "-Dgatling.simulationClass=simulation.yandex"]
+CMD mvn clean gatling:test '-Dgatling.simulationClass=simulation.Yadex'
 
 

@@ -23,7 +23,7 @@ COPY src ./src
 # Собираем Gatling проект
 #RUN ./mvnw clean package -Dmaven.test.skip=true
 
-volumes:
+volume:
     - /C:/Users:/target/gatling
 
 # Определяем команду для запуска Gatling (замените на свой класс симуляции)

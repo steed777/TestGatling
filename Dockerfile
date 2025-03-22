@@ -23,7 +23,10 @@ COPY src ./src
 # Собираем Gatling проект
 #RUN ./mvnw clean package -Dmaven.test.skip=true
 
-VOLUME /app/target/gatling:/C/Users/steed/comm
+RUN mkdir /myvol
+RUN /app/target/gatling > /myvol/greeting
+VOLUME /myvol
+#VOLUME /mnt/C/Users/steed/comm:/app/target/gatling
 
 # Определяем команду для запуска Gatling (замените на свой класс симуляции)
 CMD mvn clean gatling:test '-Dgatling.simulationClass=simulation.Yadex'

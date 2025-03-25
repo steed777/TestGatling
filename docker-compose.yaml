@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  your_service:
-    image: yadex
+  Gatling:
+    image: sha256:0574d7e7f2f50c8d55d3d41a08601e00255651afbcffab389ec413a4883197e5
     volumes:
-      - C:\Users\steed\Documents\reports:/app/reports
+      - C:/Users/steed/Documents/reports:/home/app/target/gatling
